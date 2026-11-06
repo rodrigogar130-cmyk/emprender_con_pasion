@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="theme-color" content="#0b0c0e"/>
+<title>Notas del ponente — Emprender con Pasión</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTUiIGZpbGw9IiMxMDEwMTIiLz48cGF0aCBkPSJNOSA0OCAyNSAxNWwxMCAyMSA3LTE0IDEzIDI2IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZjkyNDUiIHN0cm9rZS13aWR0aD0iNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PGNpcmNsZSBjeD0iNTEiIGN5PSIxNCIgcj0iNCIgZmlsbD0iI2ZmZjBjOSIvPjwvc3ZnPgo="/>
+<style>
+:root{color-scheme:dark;--orange:#ff9956;--bg:#0b0c0e;--line:#353538;--dim:#aaa7a6;font:15px/1.6 Inter,Arial,sans-serif}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#fff;min-height:100svh}button{cursor:pointer;font:inherit}.page{max-width:1450px;margin:auto;padding:34px 5vw 60px}header{display:flex;justify-content:space-between;align-items:center;gap:15px;padding-bottom:20px;border-bottom:1px solid var(--line)}.logo{font-size:11px;letter-spacing:.16em;font-weight:900}.logo b{color:var(--orange)}.badge{border:1px solid rgba(255,153,86,.45);padding:8px 11px;font-size:10px;color:var(--orange);letter-spacing:.1em}.top{display:flex;gap:14px;justify-content:space-between;align-items:end;margin:55px 0 30px}.eyebrow{font-weight:800;letter-spacing:.14em;font-size:11px;color:var(--orange)}h1{font-weight:900;letter-spacing:-.06em;line-height:1.04;font-size:clamp(31px,5vw,72px);margin:13px 0 0;max-width:1000px}.counter{color:var(--dim);font-size:14px;white-space:nowrap}.columns{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}.panel{background:#151619;border:1px solid var(--line);padding:28px;min-height:280px}.panel h2{font-size:11px;color:var(--orange);letter-spacing:.17em;margin:0 0 22px;text-transform:uppercase}.notes{font-size:clamp(19px,2.8vw,33px);line-height:1.42;font-weight:500;white-space:pre-wrap}.next{font-size:clamp(18px,2vw,27px);font-weight:700;line-height:1.35}.muted{color:#a19e9c;font-size:13px}.controls{display:flex;gap:10px;margin-top:25px;align-items:center;flex-wrap:wrap}button{border:1px solid rgba(255,255,255,.2);background:#1c1d20;color:white;padding:14px 20px;letter-spacing:.06em}button.primary{background:var(--orange);border-color:var(--orange);color:#14110c;font-weight:800}button:hover{border-color:var(--orange)}.clock{margin-left:auto;color:#a09a97;letter-spacing:.1em}footer{margin-top:32px;border-top:1px solid var(--line);padding-top:23px;color:#878280;font-size:12px}kbd{border:1px solid #59595e;padding:4px 8px;margin:0 3px;font:12px monospace;color:#ddd}#connection-dot{display:inline-block;width:7px;height:7px;background:#646668;border-radius:50%;margin-right:7px}#connection-dot.active{background:#78d49a;box-shadow:0 0 14px #78d49a}@media(max-width:750px){.columns{grid-template-columns:1fr}.page{padding:22px}.top{margin-top:32px}.panel{min-height:170px}.clock{margin-left:0}}
+</style>
+</head>
+<body>
+<div class="page">
+<header><div class="logo">EMPRENDER <b>CON PASIÓN</b> <span style="color:#858585">/ MODO PONENTE</span></div><div class="badge"><span id="connection-dot"></span><span id="connection">ESPERANDO CONEXIÓN</span></div></header>
+<div class="top"><div><span class="eyebrow" id="label">INTRO / 01</span><h1 id="title">Notas del ponente</h1></div><div class="counter" id="counter">01 / 01</div></div>
+<div class="columns"><section class="panel"><h2>QUÉ EXPLICAR EN ESTA ESCENA</h2><div class="notes" id="notes">Abre esta ventana desde la presentación y mantenla en una pantalla distinta a la que ve el público.</div></section><aside class="panel"><h2>LO QUE VIENE DESPUÉS</h2><div class="next" id="next">Módulo 01</div><p class="muted">Usa esta ventana para consultar las notas sin agregarlas a la proyección. Muévela a la pantalla de tu laptop antes de poner la presentación en pantalla completa.</p><p class="muted">Las notas no se almacenan ni se envían a un servidor.</p></aside></div>
+<div class="controls"><button id="prev">← ANTERIOR</button><button class="primary" id="forward">SIGUIENTE →</button><button id="reset">VOLVER AL INICIO</button><button id="fs">PANTALLA COMPLETA EN PROYECCIÓN</button><span class="clock" id="clock">00:00</span></div>
+<footer>ATAJOS: <kbd>←</kbd><kbd>→</kbd> navegación · <kbd>Inicio</kbd> principio · Si hay dos pantallas, proyecta solamente la ventana principal.</footer>
+</div>
+
+<script>
+/**
+ * Edición rápida del contenido para la ponencia.
+ * Cada módulo tiene tres escenas: apertura, conceptos, reflexión.
+ */
+const CONFIG = {
+  title: 'EMPRENDER CON PASIÓN',
+  subtitle: 'De una idea a una realidad.',
+  portfolio: 'https://rodrigogar130-cmyk.github.io/PORTAFOLIO/',
+  whatsapp: 'https://wa.me/527225123478',
+  whatsappDisplay: '722 512 3478',
+  instagram: 'https://www.instagram.com/rod_capital_solution/',
+  instagramDisplay: '@rod_capital_solution',
+  author: 'Carlos Rodrigo García Álvarez',
+};
+
+const BIO = [
+  'Licenciado en Administración por la Universidad Autónoma del Estado de México, con formación en contribuciones fiscales y experiencia en consultoría empresarial, asesoría financiera, capacitación y desarrollo de negocios.',
+  'Ha colaborado con emprendedores, empresas e instituciones como ICATI Edoméx y la UAEMéx, impulsando estrategias de crecimiento, formación empresarial y desarrollo de proyectos.',
+  'Actualmente participa en el programa Emprende UAEMéx 365 desde la Dirección de Desarrollo Empresarial. Su trayectoria integra iniciativas como Hackathon, Bootcamp e Impulso Tuaeméx 2026 con el desarrollo de plataformas digitales, automatización e inteligencia artificial.',
+  'Su enfoque combina estrategia empresarial, formación emprendedora y tecnología para transformar ideas en soluciones de valor.',
+];
+
+const MODULES = [
+  {
+    id: 'modulo-1', n:'01', eyebrow:'EL PUNTO DE PARTIDA', title:'¿TU CORAZÓN LATE PARA EMPRENDER?',
+    titleLines:['¿TU CORAZÓN LATE', 'PARA EMPRENDER?'], art:'heart',
+    words:['PASIÓN','PROPÓSITO','SUEÑOS','MOTIVACIÓN','DECISIÓN'],
+    focus:'DECISIÓN',
+    quote:'¿Qué estarías dispuesto a construir, incluso si nadie te garantizara el éxito?',
+    outro:'Todo comienza con aquello que te importa.',
+    notes:[
+      'Abre con una pregunta al público: «¿Quién ha tenido alguna vez una idea de negocio?». Distingue deseo, motivación y decisión de actuar. No romantices la incertidumbre.',
+      'Explica que la pasión da energía, el propósito orienta y la motivación fluctúa. Una decisión necesita compromiso; invita a identificar una razón personal para emprender.',
+      'Deja silencio después de la pregunta. Ejercicio de 15 segundos: que cada persona piense qué problema le importaría resolver aunque el camino fuera difícil.'
+    ],
+  },
+  {
+    id: 'modulo-2', n:'02', eyebrow:'EL NUEVO SIGNIFICADO', title:'¿QUÉ SIGNIFICA EMPRENDER HOY?',
+    titleLines:['¿QUÉ SIGNIFICA', 'EMPRENDER HOY?'], art:'network',
+    words:['PROBLEMAS','OPORTUNIDADES','INNOVACIÓN','VALOR','SOLUCIONES'],
+    focus:'VALOR',
+    quote:'Emprender no es solamente crear un negocio. Es crear valor.',
+    outro:'Observa lo que falta. Diseña lo que ayuda.',
+    notes:[
+      'No todos los emprendimientos son tecnológicos: emprender es detectar necesidades y organizar recursos para resolverlas.',
+      'Explica problema → oportunidad → solución → valor. Ejemplo: no vendes una agenda; ayudas a organizar el tiempo de alguien.',
+      'Pregunta: «¿Qué molestia cotidiana en su comunidad podría convertirse en oportunidad?». Pide uno o dos ejemplos breves.'
+    ],
+  },
+  {
+    id: 'modulo-3', n:'03', eyebrow:'LO QUE TE MANTIENE EN MOVIMIENTO', title:'LA PASIÓN COMO MOTOR DE TU NEGOCIO',
+    titleLines:['LA PASIÓN COMO', 'MOTOR DE TU NEGOCIO'], art:'energy',
+    words:['ENERGÍA','DISCIPLINA','CONSTANCIA','RESILIENCIA','ACCIÓN'],
+    focus:'ACCIÓN',
+    quote:'La pasión te impulsa. La disciplina te mantiene avanzando.',
+    outro:'La inspiración inicia. Los hábitos construyen.',
+    notes:[
+      'Cuenta que habrá días con poca motivación. La pasión impulsa, pero no reemplaza aprender, investigar, validar, administrar o descansar.',
+      'Contrasta motivación con disciplina. Un hábito pequeño que se repite es más sostenible que un esfuerzo aislado.',
+      'Pregunta: «¿Qué acción concreta podrías repetir durante los próximos siete días?». Permite que cada persona la formule para sí.'
+    ],
+  },
+  {
+    id: 'modulo-4', n:'04', eyebrow:'DEL ENTUSIASMO AL MÉTODO', title:'¡PREPÁRATE PARA EMPRENDER!',
+    titleLines:['¡PREPÁRATE', 'PARA EMPRENDER!'], art:'roadmap',
+    words:['IDEA','CLIENTE','VALIDACIÓN','MODELO','FINANZAS','MVP'],
+    focus:'VALIDACIÓN',
+    quote:'No necesitas tenerlo todo listo. Necesitas comenzar a validar.',
+    outro:'Antes de invertir más, aprende más de tu cliente.',
+    notes:[
+      'Presenta el camino: idea → cliente → validación → MVP → mejora. Un MVP es una versión mínima para obtener aprendizaje útil.',
+      'Da ejemplos de validación: entrevistas, observación, prototipos sencillos y pruebas reales. Incluye costos, ingresos y propuesta de valor.',
+      'Interacción: que el público responda si su idea resuelve un problema comprobado. Si no, propón entrevistar a cinco potenciales clientes.'
+    ],
+  },
+  {
+    id: 'modulo-5', n:'05', eyebrow:'EL EMPRENDEDOR DETRÁS DEL PROYECTO', title:'LIDERAZGO Y HABILIDADES PERSONALES',
+    titleLines:['LIDERAZGO Y', 'HABILIDADES PERSONALES'], art:'leadership',
+    words:['AUTOCONOCIMIENTO','COMUNICACIÓN','CREATIVIDAD','ADAPTABILIDAD','LIDERAZGO'],
+    focus:'LIDERAZGO',
+    quote:'Antes de dirigir un negocio, aprende a dirigirte a ti mismo.',
+    outro:'Liderar es escuchar, decidir y aprender.',
+    notes:[
+      'El liderazgo no exige dirigir a muchas personas. Comienza con autoconocimiento, responsabilidad y manejo del tiempo.',
+      'Pregunta por habilidades que complementen las de cada emprendedor. Un buen equipo integra perfiles diversos.',
+      'Invita a reconocer una fortaleza y una habilidad por desarrollar. La comunicación y la adaptación son entrenables.'
+    ],
+  },
+  {
+    id: 'modulo-6', n:'06', eyebrow:'EL IMPACTO DE LO QUE CONSTRUYES', title:'LA SATISFACCIÓN EN EL ENTORNO',
+    titleLines:['LA SATISFACCIÓN', 'EN EL ENTORNO'], art:'ecosystem',
+    words:['IMPACTO','COMUNIDAD','BIENESTAR','CRECIMIENTO','TRASCENDENCIA'],
+    focus:'TRASCENDENCIA',
+    quote:'El verdadero éxito también se mide por lo que transformas a tu alrededor.',
+    outro:'Crecer también es hacer crecer a otros.',
+    notes:[
+      'Habla de satisfacción más allá de ventas: utilidad real para clientes, condiciones dignas para colaboradores y contribuciones a la comunidad.',
+      'Plantea el equilibrio entre viabilidad económica, bienestar propio y efecto positivo de la actividad empresarial.',
+      'Invita a completar: «Si mi proyecto funciona, la vida de ______ será mejor porque ______». Conecta con el cierre.'
+    ],
+  },
+];
+
+const CLOSING_NOTES = [
+  'Vuelve al origen: una idea adquiere valor cuando se prueba con el mundo real.',
+  'Invita a no esperar al escenario perfecto. Distingue actuar con criterio de actuar impulsivamente.',
+  'Deja una pausa. Pregunta: «¿Qué vas a construir tú?». Concluye con una acción específica para hoy.'
+];
+
+
+const $=s=>document.querySelector(s);
+const isOffline=location.protocol==='file:';
+const local=[{label:'INICIO',title:'Emprender con Pasión',notes:'Da la bienvenida. Explica que la ponencia es un recorrido práctico, no una promesa de éxito automático.'}];
+for(const m of MODULES)for(let i=0;i<3;i++)local.push({label:`MÓDULO ${m.n}`,title:m.title,notes:m.notes[i]});
+CLOSING_NOTES.forEach((notes,i)=>local.push({label:'CIERRE',title:['Todo comienza con una idea','Decide actuar','¿Qué vas a construir tú?'][i],notes}));
+local.push({label:'SOBRE MÍ',title:'Presentación del ponente',notes:'Habla brevemente de experiencia, capacitación, consultoría y proyectos de innovación.'},{label:'CONTACTO',title:'Conectemos ideas',notes:'Invita a conectar por WhatsApp, Instagram o portafolio.'});
+let index=0,lastConnection=0;const channel=('BroadcastChannel' in window)?new BroadcastChannel('ecp-presentacion-v1'):null;
+function render(data){index=data.index??index;const active=local[index]||local[0];$('#label').textContent=data.label||active.label;$('#title').textContent=data.title||active.title;$('#notes').textContent=data.notes||active.notes;$('#next').textContent=data.upcoming||local[index+1]?.title||'Final de la presentación';$('#counter').textContent=`${String(index+1).padStart(2,'0')} / ${String(data.total||local.length).padStart(2,'0')}`;$('#connection-dot').classList.add('active');$('#connection').textContent='CONECTADO A LA PROYECCIÓN';lastConnection=Date.now();}
+function dispatch(data){if(isOffline&&window.opener&&!window.opener.closed)window.opener.postMessage(data,'*');else if(channel)channel.postMessage(data);else $('#connection').textContent='CONEXIÓN NO DISPONIBLE';}
+if(isOffline){window.addEventListener('message',event=>{if(event.source===window.opener&&event.data?.type==='state')render(event.data);});dispatch({type:'hello'});}
+else if(channel){channel.addEventListener('message',event=>{if(event.data?.type==='state')render(event.data);});dispatch({type:'hello'});}
+$('#prev').addEventListener('click',()=>dispatch({type:'step',offset:-1}));
+$('#forward').addEventListener('click',()=>dispatch({type:'step',offset:1}));
+$('#reset').addEventListener('click',()=>dispatch({type:'navigate',index:0}));
+$('#fs').addEventListener('click',()=>dispatch({type:'fullscreen'}));
+document.addEventListener('keydown',event=>{if(event.key==='ArrowRight'||event.key===' '){event.preventDefault();dispatch({type:'step',offset:1});}if(event.key==='ArrowLeft'){event.preventDefault();dispatch({type:'step',offset:-1});}if(event.key==='Home'){event.preventDefault();dispatch({type:'navigate',index:0});}});
+const started=Date.now();setInterval(()=>{const elapsed=Math.floor((Date.now()-started)/1000);$('#clock').textContent=`${String(Math.floor(elapsed/60)).padStart(2,'0')}:${String(elapsed%60).padStart(2,'0')}`;if(lastConnection&&Date.now()-lastConnection>30e3){$('#connection-dot').classList.remove('active');$('#connection').textContent='SIN ACTUALIZACIONES RECIENTES';dispatch({type:'hello'});}},1000);
+
+</script>
+</body></html>

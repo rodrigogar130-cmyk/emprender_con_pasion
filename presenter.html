@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="theme-color" content="#0b0c0e"/>
+<title>Notas del ponente — Emprender con Pasión</title>
+<link rel="icon" type="image/svg+xml" href="assets/img/icono.svg"/>
+<style>
+:root{color-scheme:dark;--orange:#ff9956;--bg:#0b0c0e;--line:#353538;--dim:#aaa7a6;font:15px/1.6 Inter,Arial,sans-serif}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#fff;min-height:100svh}button{cursor:pointer;font:inherit}.page{max-width:1450px;margin:auto;padding:34px 5vw 60px}header{display:flex;justify-content:space-between;align-items:center;gap:15px;padding-bottom:20px;border-bottom:1px solid var(--line)}.logo{font-size:11px;letter-spacing:.16em;font-weight:900}.logo b{color:var(--orange)}.badge{border:1px solid rgba(255,153,86,.45);padding:8px 11px;font-size:10px;color:var(--orange);letter-spacing:.1em}.top{display:flex;gap:14px;justify-content:space-between;align-items:end;margin:55px 0 30px}.eyebrow{font-weight:800;letter-spacing:.14em;font-size:11px;color:var(--orange)}h1{font-weight:900;letter-spacing:-.06em;line-height:1.04;font-size:clamp(31px,5vw,72px);margin:13px 0 0;max-width:1000px}.counter{color:var(--dim);font-size:14px;white-space:nowrap}.columns{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}.panel{background:#151619;border:1px solid var(--line);padding:28px;min-height:280px}.panel h2{font-size:11px;color:var(--orange);letter-spacing:.17em;margin:0 0 22px;text-transform:uppercase}.notes{font-size:clamp(19px,2.8vw,33px);line-height:1.42;font-weight:500;white-space:pre-wrap}.next{font-size:clamp(18px,2vw,27px);font-weight:700;line-height:1.35}.muted{color:#a19e9c;font-size:13px}.controls{display:flex;gap:10px;margin-top:25px;align-items:center;flex-wrap:wrap}button{border:1px solid rgba(255,255,255,.2);background:#1c1d20;color:white;padding:14px 20px;letter-spacing:.06em}button.primary{background:var(--orange);border-color:var(--orange);color:#14110c;font-weight:800}button:hover{border-color:var(--orange)}.clock{margin-left:auto;color:#a09a97;letter-spacing:.1em}footer{margin-top:32px;border-top:1px solid var(--line);padding-top:23px;color:#878280;font-size:12px}kbd{border:1px solid #59595e;padding:4px 8px;margin:0 3px;font:12px monospace;color:#ddd}#connection-dot{display:inline-block;width:7px;height:7px;background:#646668;border-radius:50%;margin-right:7px}#connection-dot.active{background:#78d49a;box-shadow:0 0 14px #78d49a}@media(max-width:750px){.columns{grid-template-columns:1fr}.page{padding:22px}.top{margin-top:32px}.panel{min-height:170px}.clock{margin-left:0}}
+</style>
+</head>
+<body>
+<div class="page">
+<header><div class="logo">EMPRENDER <b>CON PASIÓN</b> <span style="color:#858585">/ MODO PONENTE</span></div><div class="badge"><span id="connection-dot"></span><span id="connection">ESPERANDO CONEXIÓN</span></div></header>
+<div class="top"><div><span class="eyebrow" id="label">INTRO / 01</span><h1 id="title">Notas del ponente</h1></div><div class="counter" id="counter">01 / 01</div></div>
+<div class="columns"><section class="panel"><h2>QUÉ EXPLICAR EN ESTA ESCENA</h2><div class="notes" id="notes">Abre esta ventana desde la presentación y mantenla en una pantalla distinta a la que ve el público.</div></section><aside class="panel"><h2>LO QUE VIENE DESPUÉS</h2><div class="next" id="next">Módulo 01</div><p class="muted">Usa esta ventana para consultar las notas sin agregarlas a la proyección. Muévela a la pantalla de tu laptop antes de poner la presentación en pantalla completa.</p><p class="muted">Las notas no se almacenan ni se envían a un servidor.</p></aside></div>
+<div class="controls"><button id="prev">← ANTERIOR</button><button class="primary" id="forward">SIGUIENTE →</button><button id="reset">VOLVER AL INICIO</button><button id="fs">PANTALLA COMPLETA EN PROYECCIÓN</button><span class="clock" id="clock">00:00</span></div>
+<footer>ATAJOS: <kbd>←</kbd><kbd>→</kbd> navegación · <kbd>Inicio</kbd> principio · Si hay dos pantallas, proyecta solamente la ventana principal.</footer>
+</div>
+<script type="module" src="assets/js/presenter.js"></script>
+</body></html>
