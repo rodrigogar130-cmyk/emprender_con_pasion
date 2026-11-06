@@ -16,6 +16,7 @@ let presentation = await source('index.html');
 presentation = presentation.replace('<link rel="stylesheet" href="assets/css/styles.css" />', `<style>\n${await source('assets/css/styles.css')}\n</style>`);
 presentation = presentation.replace('<script type="module" src="assets/js/main.js"></script>', '');
 presentation = presentation.replaceAll('assets/img/carlos-rodrigo-original.jpeg', await dataUri('assets/img/carlos-rodrigo-original.jpeg', 'image/jpeg'));
+presentation = presentation.replaceAll('assets/img/carlos-rodrigo-sin-fondo.png', await dataUri('assets/img/carlos-rodrigo-sin-fondo.png', 'image/png'));
 presentation = presentation.replaceAll('assets/img/qr-portafolio.svg', await dataUri('assets/img/qr-portafolio.svg', 'image/svg+xml'));
 presentation = presentation.replaceAll('assets/img/icono.svg', icon);
 presentation = presentation.replace('</body>', `<script>\n${content}\n${main}\n</script>\n</body>`);
