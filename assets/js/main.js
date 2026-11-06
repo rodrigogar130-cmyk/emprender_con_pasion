@@ -13,30 +13,30 @@ let mainChannel;
 let presenterPopup=null;
 
 function polar(cx,cy,r,degrees){const a=degrees*Math.PI/180;return [cx+Math.cos(a)*r,cy+Math.sin(a)*r];}
-function dots(center=250,radius=153,count=10){return Array.from({length:count},(_,i)=>{const [x,y]=polar(center,center,radius,i*360/count-90);return `<circle class="art-dot" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${i%3===0?5:3}" fill="${i%3===0?'#ff9a55':'#f9d4aa'}" opacity=".75" style="animation-delay:${(i*.27).toFixed(1)}s"/>`}).join('');}
-function linesBetween(nodes,edges){return edges.map(([a,b])=>`<line x1="${nodes[a][0]}" y1="${nodes[a][1]}" x2="${nodes[b][0]}" y2="${nodes[b][1]}" stroke="#ffb17a" stroke-width="1.5" opacity=".4"/>`).join('');}
+function dots(center=250,radius=153,count=10){return Array.from({length:count},(_,i)=>{const [x,y]=polar(center,center,radius,i*360/count-90);return `<circle class="art-dot" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${i%3===0?5:3}" fill="${i%3===0?'#a3ff12':'#b7ff49'}" opacity=".75" style="animation-delay:${(i*.27).toFixed(1)}s"/>`}).join('');}
+function linesBetween(nodes,edges){return edges.map(([a,b])=>`<line x1="${nodes[a][0]}" y1="${nodes[a][1]}" x2="${nodes[b][0]}" y2="${nodes[b][1]}" stroke="#b7ff49" stroke-width="1.5" opacity=".4"/>`).join('');}
 function artwork(kind) {
-  const start='<svg viewBox="0 0 500 500" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="glow"><stop stop-color="#ff9d55" stop-opacity=".35"/><stop offset="1" stop-color="#ff9d55" stop-opacity="0"/></radialGradient><linearGradient id="stroke" x1="0" y1="0" x2="500" y2="500"><stop stop-color="#ffe3bf"/><stop offset=".5" stop-color="#ff9653"/><stop offset="1" stop-color="#b54a28"/></linearGradient></defs>';
+  const start='<svg viewBox="0 0 500 500" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="glow"><stop stop-color="#76b900" stop-opacity=".42"/><stop offset="1" stop-color="#76b900" stop-opacity="0"/></radialGradient><linearGradient id="stroke" x1="0" y1="0" x2="500" y2="500"><stop stop-color="#f5f7f2"/><stop offset=".5" stop-color="#a3ff12"/><stop offset="1" stop-color="#426e00"/></linearGradient></defs>';
   const end='</svg>';
-  if(kind==='heart')return start+`<circle cx="250" cy="250" r="225" stroke="#ff9147" opacity=".17" class="orbit-ring reveal-stroke"/><circle cx="250" cy="250" r="188" stroke="#ff9147" opacity=".15"/><circle cx="250" cy="250" r="162" fill="url(#glow)" class="art-halo"/><path class="art-heart" d="M250 371C173 307 120 263 120 205c0-37 29-66 65-66 31 0 51 17 65 39 14-22 35-39 65-39 36 0 65 29 65 66 0 58-53 102-130 166Z" stroke="url(#stroke)" stroke-width="4" fill="#ff9147" fill-opacity=".1"/>`+dots()+end;
+  if(kind==='heart')return start+`<circle cx="250" cy="250" r="225" stroke="#76b900" opacity=".24" class="orbit-ring reveal-stroke"/><circle cx="250" cy="250" r="188" stroke="#76b900" opacity=".18"/><circle cx="250" cy="250" r="162" fill="url(#glow)" class="art-halo"/><path class="art-heart" d="M250 371C173 307 120 263 120 205c0-37 29-66 65-66 31 0 51 17 65 39 14-22 35-39 65-39 36 0 65 29 65 66 0 58-53 102-130 166Z" stroke="url(#stroke)" stroke-width="4" fill="#76b900" fill-opacity=".12"/>`+dots()+end;
   if(kind==='network'){
     const nodes=[[95,131],[189,94],[324,94],[413,166],[130,274],[245,246],[364,293],[194,396],[349,420],[78,390]];
     const edges=[[0,1],[1,2],[2,3],[0,4],[1,5],[2,5],[2,3],[3,6],[4,5],[5,6],[4,7],[5,7],[5,8],[6,8],[7,9],[4,9]];
-    return start+`<circle cx="247" cy="252" r="215" stroke="#ff9147" stroke-dasharray="3 13" opacity=".28" class="orbit-ring"/>${linesBetween(nodes,edges)}${nodes.map(([x,y],i)=>`<circle cx="${x}" cy="${y}" r="${i===5?15:7}" fill="${i===5?'#ff9953':'#15110e'}" stroke="#ffae73" stroke-width="2" opacity="${i===5?1:.9}"/><circle cx="${x}" cy="${y}" r="${i===5?31:15}" stroke="#ffae73" opacity=".23"/>`).join('')}<circle cx="245" cy="246" r="80" fill="url(#glow)"/>`+end;
+    return start+`<circle cx="247" cy="252" r="215" stroke="#76b900" stroke-dasharray="3 13" opacity=".35" class="orbit-ring"/>${linesBetween(nodes,edges)}${nodes.map(([x,y],i)=>`<circle cx="${x}" cy="${y}" r="${i===5?15:7}" fill="${i===5?'#a3ff12':'#0b0f0b'}" stroke="#b7ff49" stroke-width="2" opacity="${i===5?1:.9}"/><circle cx="${x}" cy="${y}" r="${i===5?31:15}" stroke="#b7ff49" opacity=".23"/>`).join('')}<circle cx="245" cy="246" r="80" fill="url(#glow)"/>`+end;
   }
   if(kind==='energy'){
-    return start+`<circle cx="250" cy="250" r="230" stroke="#ff9147" stroke-dasharray="1 17" opacity=".5" class="orbit-ring"/><circle cx="250" cy="250" r="192" stroke="#ff9147" stroke-width="2" opacity=".14"/><circle cx="250" cy="250" r="147" stroke="url(#stroke)" stroke-width="3" opacity=".65" class="orbit-ring reverse reveal-stroke"/><circle cx="250" cy="250" r="110" stroke="#ff9147" opacity=".34"/><circle cx="250" cy="250" r="78" fill="url(#glow)" class="art-halo"/><circle class="art-core" cx="250" cy="250" r="22" fill="#ff9653"/>${Array.from({length:18},(_,i)=>{const [a,b]=polar(250,250,124,i*20);const[c,d]=polar(250,250,i%3===0?220:182,i*20);return `<line x1="${a}" y1="${b}" x2="${c}" y2="${d}" stroke="#ffac76" stroke-width="${i%3===0?2:1}" opacity=".5"/>`}).join('')}`+end;
+    return start+`<circle cx="250" cy="250" r="230" stroke="#76b900" stroke-dasharray="1 17" opacity=".5" class="orbit-ring"/><circle cx="250" cy="250" r="192" stroke="#76b900" stroke-width="2" opacity=".14"/><circle cx="250" cy="250" r="147" stroke="url(#stroke)" stroke-width="3" opacity=".65" class="orbit-ring reverse reveal-stroke"/><circle cx="250" cy="250" r="110" stroke="#76b900" opacity=".34"/><circle cx="250" cy="250" r="78" fill="url(#glow)" class="art-halo"/><circle class="art-core" cx="250" cy="250" r="22" fill="#a3ff12"/>${Array.from({length:18},(_,i)=>{const [a,b]=polar(250,250,124,i*20);const[c,d]=polar(250,250,i%3===0?220:182,i*20);return `<line x1="${a}" y1="${b}" x2="${c}" y2="${d}" stroke="#b7ff49" stroke-width="${i%3===0?2:1}" opacity=".5"/>`}).join('')}`+end;
   }
   if(kind==='roadmap'){
     const labels=['01','02','03','04','05'];const xs=[55,149,243,337,431];
-    return start+`<path d="M55 250H430" stroke="#ff9147" stroke-width="2" stroke-dasharray="6 11" opacity=".8"/><path d="M55 240V139H242V250H430V340H339" stroke="#ff9147" stroke-width="1" opacity=".18"/><circle cx="250" cy="250" r="190" stroke="#ff9147" opacity=".13" class="orbit-ring reveal-stroke"/>${xs.map((x,i)=>`<circle cx="${x}" cy="250" r="${i===2?27:18}" fill="#15120f" stroke="${i===2?'#ffe0b4':'#ff9147'}" stroke-width="2"/><text x="${x}" y="256" font-family="Arial" fill="#ffd0a5" font-size="${i===2?15:12}" text-anchor="middle" font-weight="bold">${labels[i]}</text>`).join('')}<circle cx="243" cy="250" r="78" fill="url(#glow)"/>`+end;
+    return start+`<path d="M55 250H430" stroke="#76b900" stroke-width="2" stroke-dasharray="6 11" opacity=".8"/><path d="M55 240V139H242V250H430V340H339" stroke="#76b900" stroke-width="1" opacity=".18"/><circle cx="250" cy="250" r="190" stroke="#76b900" opacity=".13" class="orbit-ring reveal-stroke"/>${xs.map((x,i)=>`<circle cx="${x}" cy="250" r="${i===2?27:18}" fill="#0b0f0b" stroke="${i===2?'#f5f7f2':'#76b900'}" stroke-width="2"/><text x="${x}" y="256" font-family="Arial" fill="#dfffb1" font-size="${i===2?15:12}" text-anchor="middle" font-weight="bold">${labels[i]}</text>`).join('')}<circle cx="243" cy="250" r="78" fill="url(#glow)"/>`+end;
   }
   if(kind==='leadership'){
     const points=Array.from({length:5},(_,i)=>polar(250,250,172,i*72-90));
-    return start+`<circle cx="250" cy="250" r="215" stroke="#ff9147" opacity=".17" stroke-dasharray="2 12" class="orbit-ring"/><circle cx="250" cy="250" r="175" stroke="#ff9147" opacity=".3"/><circle cx="250" cy="250" r="80" fill="url(#glow)"/>${points.map(([x,y],i)=>`<line x1="250" y1="250" x2="${x}" y2="${y}" stroke="#ffbc81" opacity=".45"/><circle cx="${x}" cy="${y}" r="${i===0?15:10}" fill="#1c1310" stroke="#ffab72" stroke-width="2"/><circle cx="${x}" cy="${y}" r="25" stroke="#ffab72" opacity=".18"/>`).join('')}<circle cx="250" cy="204" r="27" stroke="url(#stroke)" stroke-width="3"/><path d="M186 332c1-39 25-72 64-72s63 33 64 72" stroke="url(#stroke)" stroke-width="3"/>`+end;
+    return start+`<circle cx="250" cy="250" r="215" stroke="#76b900" opacity=".17" stroke-dasharray="2 12" class="orbit-ring"/><circle cx="250" cy="250" r="175" stroke="#76b900" opacity=".3"/><circle cx="250" cy="250" r="80" fill="url(#glow)"/>${points.map(([x,y],i)=>`<line x1="250" y1="250" x2="${x}" y2="${y}" stroke="#b7ff49" opacity=".45"/><circle cx="${x}" cy="${y}" r="${i===0?15:10}" fill="#0b0f0b" stroke="#a3ff12" stroke-width="2"/><circle cx="${x}" cy="${y}" r="25" stroke="#a3ff12" opacity=".18"/>`).join('')}<circle cx="250" cy="204" r="27" stroke="url(#stroke)" stroke-width="3"/><path d="M186 332c1-39 25-72 64-72s63 33 64 72" stroke="url(#stroke)" stroke-width="3"/>`+end;
   }
   const points=Array.from({length:11},(_,i)=>{const r=i%2===0?177:115;return polar(250,250,r,i*360/11-90)});
-  return start+`<circle cx="250" cy="250" r="219" stroke="#ff9147" opacity=".25"/><circle cx="250" cy="250" r="140" stroke="#ff9147" opacity=".2" class="orbit-ring reveal-stroke"/><circle cx="250" cy="250" r="87" fill="url(#glow)"/>${points.map(([x,y],i)=>`<line x1="250" y1="250" x2="${x}" y2="${y}" stroke="#ff9147" stroke-width="1.3" opacity=".4"/><circle cx="${x}" cy="${y}" r="${i%3===0?9:5}" fill="${i%3===0?'#ffad75':'#f1d5b6'}"/><circle cx="${x}" cy="${y}" r="22" stroke="#ff9147" opacity=".14"/>`).join('')}<circle cx="250" cy="250" r="25" fill="#ff9a55" class="art-core"/>`+end;
+  return start+`<circle cx="250" cy="250" r="219" stroke="#76b900" opacity=".25"/><circle cx="250" cy="250" r="140" stroke="#76b900" opacity=".2" class="orbit-ring reveal-stroke"/><circle cx="250" cy="250" r="87" fill="url(#glow)"/>${points.map(([x,y],i)=>`<line x1="250" y1="250" x2="${x}" y2="${y}" stroke="#76b900" stroke-width="1.3" opacity=".4"/><circle cx="${x}" cy="${y}" r="${i%3===0?9:5}" fill="${i%3===0?'#a3ff12':'#dfffb1'}"/><circle cx="${x}" cy="${y}" r="22" stroke="#76b900" opacity=".14"/>`).join('')}<circle cx="250" cy="250" r="25" fill="#a3ff12" class="art-core"/>`+end;
 }
 
 function moduleHTML(m){
@@ -68,6 +68,10 @@ function buildPage(){
 function absoluteTop(el){return el.getBoundingClientRect().top + window.scrollY;}
 function computePositions(){
   positions=[{key:'inicio',type:'intro',scene:0,label:'INICIO',title:'Emprender con Pasión',notes:'Da la bienvenida. Explica que la ponencia es un recorrido práctico, no una promesa de éxito automático.',y:0}];
+  const profile=document.getElementById('perfil');
+  if(profile)positions.push({key:'perfil',type:'profile',scene:0,label:'PERFIL',title:'Carlos Rodrigo García Álvarez',notes:'Preséntate: conecta tu experiencia en consultoría, capacitación, innovación y transformación digital con el recorrido que está por comenzar.',y:Math.round(absoluteTop(profile))});
+  const article=document.getElementById('articulo-cerebro');
+  if(article)positions.push({key:'articulo-cerebro',type:'article',scene:0,label:'ARTÍCULO',title:'¿Tu empresa está funcionando como un cerebro eficiente?',notes:'Conecta el emprendimiento con la idea de una organización que aprende: información, personas y decisiones deben circular con claridad.',y:Math.round(absoluteTop(article))});
   MODULES.forEach((m,mi)=>{
     const el=document.getElementById(m.id);
     const top=absoluteTop(el),range=Math.max(0,el.offsetHeight-innerHeight);
@@ -126,8 +130,9 @@ function queueFrame(){if(!rafQueued){rafQueued=true;requestAnimationFrame(frame)
 function updateUI(){
   const current=positions[selectedIndex];if(!current)return;
   $('#current-scene-label').textContent=current.label;
-  const local=current.type==='module'?String(current.scene+1).padStart(2,'0'):'01';
-  $('#current-scene-count').textContent=`${local} — 03`;
+  const isStory=current.type==='module'||current.type==='closing';
+  const local=isStory?String(current.scene+1).padStart(2,'0'):'01';
+  $('#current-scene-count').textContent=`${local} — ${isStory?'03':'01'}`;
   $('#announce').textContent=`${current.label}: ${current.title}. Escena ${current.scene+1}`;
   $$('.rail-dot').forEach((b)=>b.classList.toggle('is-active',current.type==='module'&&b.dataset.module===MODULES[current.module].id));
   sendState();

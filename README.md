@@ -64,7 +64,15 @@ Para regenerar el QR después de cambiar el portafolio (si tienes Python y `qrco
 python scripts/generate_qr.py
 ```
 
-Para modificar la composición, colores o escala, utiliza `assets/css/styles.css`.
+Para regenerar las versiones offline después de editar la web:
+
+```sh
+python scripts/build_offline.py
+# o, sin Python:
+node scripts/build_offline.mjs
+```
+
+Para modificar la composición, colores o escala, utiliza `assets/css/styles.css`. Los SVG animados de los módulos se generan en `assets/js/main.js`.
 
 ## Consideraciones técnicas
 
@@ -93,7 +101,8 @@ emprender-con-pasion/
 │   └── img/qr-portafolio.svg
 └── scripts/
     ├── generate_qr.py
-    └── build_offline.py
+    ├── build_offline.py
+    └── build_offline.mjs
 ```
 
 **© 2026 Carlos Rodrigo García Álvarez.**

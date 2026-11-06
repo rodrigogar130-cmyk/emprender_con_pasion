@@ -2,6 +2,8 @@ import {MODULES,CLOSING_NOTES} from './content.js';
 const $=s=>document.querySelector(s);
 const isOffline=location.protocol==='file:';
 const local=[{label:'INICIO',title:'Emprender con Pasión',notes:'Da la bienvenida. Explica que la ponencia es un recorrido práctico, no una promesa de éxito automático.'}];
+local.push({label:'PERFIL',title:'Carlos Rodrigo García Álvarez',notes:'Preséntate: conecta tu experiencia en consultoría, capacitación, innovación y transformación digital con el recorrido que está por comenzar.'});
+local.push({label:'ARTÍCULO',title:'¿Tu empresa está funcionando como un cerebro eficiente?',notes:'Conecta el emprendimiento con la idea de una organización que aprende: información, personas y decisiones deben circular con claridad.'});
 for(const m of MODULES)for(let i=0;i<3;i++)local.push({label:`MÓDULO ${m.n}`,title:m.title,notes:m.notes[i]});
 CLOSING_NOTES.forEach((notes,i)=>local.push({label:'CIERRE',title:['Todo comienza con una idea','Decide actuar','¿Qué vas a construir tú?'][i],notes}));
 local.push({label:'SOBRE MÍ',title:'Presentación del ponente',notes:'Habla brevemente de experiencia, capacitación, consultoría y proyectos de innovación.'},{label:'CONTACTO',title:'Conectemos ideas',notes:'Invita a conectar por WhatsApp, Instagram o portafolio.'});
