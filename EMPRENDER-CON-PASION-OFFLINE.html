@@ -402,6 +402,91 @@ body.motion-paused html{scroll-behavior:auto}
 @media(max-width:800px){.article-grid{grid-template-columns:1fr;gap:20px}.article-meta{flex-direction:row;justify-content:space-between;align-items:end}.article-meta .micro-label{max-width:none}.article-index{font-size:70px}.article-circuit{width:85vw;right:-45%;opacity:.55}.article-copy h2{font-size:clamp(40px,9vw,74px)}}
 @media(max-width:500px){.article-feature{padding:92px 0}.article-summary{font-size:15px}.article-signals span{font-size:8px;padding:7px}.article-link{font-size:9px;gap:13px}}
 
+/* Ajustes de composición para pantallas de teléfono */
+@media (max-width:600px){
+ .site-header{gap:10px}
+ .hero{min-height:auto}
+ .hero-layout{min-height:0;padding-bottom:42px}
+ .hero-copy{max-width:100%}
+ .hero-bottomline{min-height:50px;height:auto;padding:11px 0;line-height:1.45}
+ .hero-bottomline span:first-child{max-width:calc(100% - 34px)}
+ .story-scene{padding-top:118px;padding-bottom:95px}
+ .chapter-topline{gap:12px}
+ .chapter-label{min-width:0}
+ .chapter-step{white-space:nowrap}
+ .chapter-bottomline{bottom:66px;gap:12px}
+ .chapter-bottomline span{max-width:70%}
+ .words-foot{margin-top:22px}
+ .reflection-foot{margin-top:20px}
+ .contact-card{padding:20px 18px}
+ .contact-qr-row{align-items:flex-start;gap:15px}
+ .site-footer{gap:10px 18px}
+}
+
+@media (max-width:420px){
+ .site-header{height:62px;padding-inline:16px}
+ .brand-mark{width:23px;height:23px}
+ .brand-mark-line{width:8px;height:13px}
+ .brand-text{font-size:8px}
+ .header-actions .icon-action,.header-actions #presenter-open{display:none}
+ .header-action{height:31px;padding:0 9px;font-size:7px}
+ .hero-layout{padding-top:78px;gap:20px}
+ .hero-visual{max-width:min(76vw,255px)}
+ .hero-title{font-size:clamp(48px,14.6vw,61px);line-height:.86}
+ .hero-pretitle{font-size:9px;line-height:1.45;margin-top:17px}
+ .hero-subtitle{font-size:15px;margin:19px 0 16px}
+ .hero-author{gap:10px;margin-bottom:19px}
+ .hero-author div>span{line-height:1.35}
+ .hero-bottomline{font-size:7px;letter-spacing:.13em}
+ .photo-top-label{font-size:7px}
+ .photo-bottom-label{font-size:13px}
+ .profile-system{max-width:100%;min-height:285px}
+ .profile-portrait{width:190px;height:255px}
+ .system-orbit{width:min(calc(100vw - 44px),280px)}
+ .profile-intro-copy h2{font-size:clamp(39px,11.5vw,49px)}
+ .article-meta{gap:10px}
+ .article-index{font-size:58px}
+ .article-copy h2{font-size:clamp(35px,10.5vw,44px)}
+ .story-scene{padding-top:105px;padding-bottom:88px}
+ .chapter-topline{top:75px;padding-bottom:10px}
+ .chapter-topline .chapter-step{display:none}
+ .chapter-bottomline{bottom:61px;padding-top:10px;font-size:7px;letter-spacing:.12em}
+ .chapter-intro-title{font-size:clamp(34px,10.7vw,45px)}
+ .chapter-kicker{font-size:8px;gap:9px;margin-bottom:20px}
+ .chapter-kicker:before{width:22px}
+ .chapter-intro-sub{margin-top:19px;padding-left:14px;font-size:13px;line-height:1.45}
+ .words-headline{font-size:29px;margin:10px 0 23px}
+ .word-chip{font-size:clamp(17px,5.3vw,23px);padding:9px 10px 10px}
+ .words-foot{font-size:8px;margin-top:18px}
+ .words-foot:before{width:24px}
+ .reflection-overline{font-size:8px;letter-spacing:.16em}
+ .quote-mark{font-size:78px;margin:10px 0 -5px}
+ .reflection-quote{font-size:clamp(29px,8.9vw,38px);line-height:1.03}
+ .reflection-foot{font-size:12px;line-height:1.4}
+ .validation-widget{margin-top:20px}
+ .validation-widget>strong{font-size:10px}
+ .validation-buttons button{padding:8px 10px;font-size:8px}
+ .finale-scene{padding-inline:var(--edge)}
+ .finale-scene h2{font-size:clamp(36px,10.4vw,45px)}
+ .about-photo-caption{font-size:7px;gap:8px}
+ .about-name strong{font-size:12px}
+ .expertise-chips{margin:25px 0}
+ .expertise-chips span{font-size:8px;padding:7px 8px}
+ .contact-inner h2{font-size:clamp(34px,10.4vw,44px)}
+ .contact-grid{gap:9px}
+ .contact-card{min-height:108px;padding:17px 15px;gap:12px}
+ .contact-icon{font-size:23px}
+ .contact-info strong{font-size:18px}
+ .contact-info small{font-size:10px}
+ .card-arrow{right:14px;top:13px;font-size:18px}
+ .contact-qr-row{flex-direction:column;padding:35px 0 50px}
+ .site-footer{align-items:flex-start;flex-direction:column;padding-bottom:80px}
+ .present-controls{right:10px;bottom:11px;height:40px}
+ .control-arrow{width:38px;height:38px;font-size:20px}
+ .scene-indicator{min-width:105px;font-size:8px;gap:5px}
+ .toast{right:10px;bottom:63px}
+}
+
 </style>
   
 </head>
